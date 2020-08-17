@@ -1,0 +1,25 @@
+{
+  "main": "",
+  "name": "@types/khenshin-ui",
+  "version": "1.0.0",
+  "typeScriptVersion": "3.9.5",
+  "types": "index.d.ts",
+  "contributors": [
+    {
+      "name": "Julio Araya C",
+      "email": "julio.araya@khipu.com",
+      "url": "https://github.com/NaNtrack"
+    }
+  ],
+  "dependencies": {},
+  "description": "TypeScript definitions for khipu/browser2app-khenshin-nodejs and khipu/grafkhipuweb",
+  "homepage": "https://bitbucket.org/khipu/types-khenshin-ui",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://bitbucket.org/khipu/types-khenshin-ui.git",
+    "directory": "types/khenshin-ui"
+  },
+  "scripts": {}
+}
