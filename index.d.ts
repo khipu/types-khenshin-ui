@@ -77,6 +77,7 @@ type OperationFailedReason =
     | 'TASK_FINISHED'
     | 'INVALID_OPERATION_ID'
     | 'TASK_DOWNLOAD_ERROR'
+    | 'FORM_TIMEOUT'
 
 type ProgressMessageType = 'PROGRESS_START' | 'PROGRESS_STOP'
 
