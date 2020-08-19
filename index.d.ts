@@ -35,11 +35,31 @@ interface InfoMessage extends BaseMessage {
 }
 
 interface ProgressMessage {
-  type: ProgressMessageType
   title?: string
 }
 
-type UiMessage = InfoMessage | SuccessMessage | WarningMessage | FailureMessage | FormMessage | ProgressMessage
+interface ProgressStartMessage extends ProgressMessage {
+  type: 'PROGRESS_START'
+}
+
+interface ProgressStopMessage extends ProgressMessage  {
+  type: 'PROGRESS_STOP'
+}
+
+interface HandshakeMessage {
+  type: 'HANDSHAKE'
+  key: string
+}
+
+type UiMessage =
+    | InfoMessage
+    | SuccessMessage
+    | WarningMessage
+    | FailureMessage
+    | FormMessage
+    | ProgressStartMessage
+    | ProgressStopMessage
+    | HandshakeMessage
 
 interface Question {
   type: QuestionType
@@ -78,6 +98,4 @@ type OperationFailedReason =
     | 'INVALID_OPERATION_ID'
     | 'TASK_DOWNLOAD_ERROR'
     | 'FORM_TIMEOUT'
-
-type ProgressMessageType = 'PROGRESS_START' | 'PROGRESS_STOP'
 
