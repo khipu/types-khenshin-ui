@@ -48,7 +48,7 @@ interface ProgressStopMessage extends ProgressMessage  {
 
 interface HandshakeMessage {
   type: 'HANDSHAKE'
-  key: string
+  key?: string
 }
 
 type UiMessage =
