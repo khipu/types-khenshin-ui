@@ -39,7 +39,11 @@ interface ProgressMessage {
   title?: string
 }
 
-type UiMessage = InfoMessage | SuccessMessage | WarningMessage | FailureMessage | FormMessage | ProgressMessage
+interface ExchangeMessage {
+  key: string
+}
+
+type UiMessage = InfoMessage | SuccessMessage | WarningMessage | FailureMessage | FormMessage | ProgressMessage | ExchangeMessage
 
 interface Question {
   type: QuestionType
