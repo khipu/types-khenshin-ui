@@ -51,6 +51,16 @@ interface HandshakeMessage {
   key?: string
 }
 
+interface RequestPaymentId {
+  type: 'REQUEST_PAYMENT_ID'
+}
+
+interface RequestEmailAndBankId {
+  type: 'REQUEST_EMAIL_AND_BANK_ID'
+  email?: string
+  bankId?: string
+}
+
 type UiMessage =
     | InfoMessage
     | SuccessMessage
@@ -60,6 +70,7 @@ type UiMessage =
     | ProgressStartMessage
     | ProgressStopMessage
     | HandshakeMessage
+    | RequestPaymentId
 
 interface Question {
   type: QuestionType
@@ -87,7 +98,7 @@ interface UIAnswer {
   value: string
 }
 
-type QuestionType = 'password' | 'number' | 'email' | 'rut' | 'input' | 'list'
+type QuestionType = 'password' | 'number' | 'email' | 'rut' | 'input' | 'list' | 'coordinates'
 
 type OperationFailedReason =
     | 'TASK_DUMPED'
