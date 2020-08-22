@@ -96,6 +96,7 @@ interface Choice {
 interface UIAnswer {
   id: string
   value: string
+  multiple: boolean
 }
 
 type QuestionType = 'password' | 'number' | 'email' | 'rut' | 'input' | 'list' | 'coordinates'
