@@ -36,6 +36,7 @@ interface FailureMessage extends ExitMessage {
 }
 
 interface UIResponseMessage {
+  type: 'USER_RESPONSE'
   id: string
   answers: UIAnswer[]
 }
@@ -108,7 +109,7 @@ interface Choice {
 interface UIAnswer {
   id: string
   value: string
-  multiple?: boolean
+  multiple: boolean
 }
 
 type QuestionType = 'password' | 'number' | 'email' | 'rut' | 'input' | 'list' | 'coordinates'
