@@ -35,6 +35,11 @@ interface FailureMessage extends ExitMessage {
   type: 'OPERATION_FAILURE'
 }
 
+interface UIResponseMessage {
+  id: string
+  answers: UIAnswer[]
+}
+
 interface InfoMessage extends BaseMessage {
   type: 'OPERATION_INFO'
 }
@@ -56,8 +61,9 @@ interface HandshakeMessage {
   key?: string
 }
 
-interface RequestPaymentId {
-  type: 'REQUEST_PAYMENT_ID'
+interface PaymentIdMessage {
+  type: 'PAYMENT_ID'
+  paymentId?: string
 }
 
 interface RequestEmailAndBankId {
@@ -67,6 +73,7 @@ interface RequestEmailAndBankId {
 }
 
 type UiMessage =
+    | UIResponseMessage
     | InfoMessage
     | SuccessMessage
     | WarningMessage
@@ -75,7 +82,7 @@ type UiMessage =
     | ProgressStartMessage
     | ProgressStopMessage
     | HandshakeMessage
-    | RequestPaymentId
+    | PaymentIdMessage
 
 interface Question {
   type: QuestionType
@@ -101,7 +108,7 @@ interface Choice {
 interface UIAnswer {
   id: string
   value: string
-  multiple: boolean
+  multiple?: boolean
 }
 
 type QuestionType = 'password' | 'number' | 'email' | 'rut' | 'input' | 'list' | 'coordinates'
