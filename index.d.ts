@@ -146,7 +146,7 @@ interface UpdatePaymentMessage extends TypedMessage {
    */
   email?: string
   /**
-   * @fromClient: The user bank id selected
+   * @fromClient: The bank id selected
    */
   bankId?: string
   /**
