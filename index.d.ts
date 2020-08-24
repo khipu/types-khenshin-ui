@@ -36,6 +36,7 @@ interface FailureMessage extends ExitMessage {
 }
 
 interface UIResponseMessage {
+  type: 'USER_RESPONSE'
   id: string
   answers: UIAnswer[]
 }
