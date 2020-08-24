@@ -1,7 +1,7 @@
 {
   "main": "",
   "name": "@types/khenshin-ui",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "typeScriptVersion": "3.9.5",
   "types": "index.d.ts",
   "contributors": [

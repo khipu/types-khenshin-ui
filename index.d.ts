@@ -4,6 +4,11 @@ interface BaseMessage {
 
 interface FormMessage extends BaseMessage {
   id: string
+  info?: string
+  pageTitle?: string
+  continueLabel?: string
+  currentStep?: number
+  totalSteps?: number
   errorMessage?: string
   questions: Question[]
   type: 'FORM'
