@@ -53,6 +53,7 @@ interface FormMessage extends BaseMessage, TypedMessage {
   totalSteps?: number
   errorMessage?: string
   questions: Question[]
+  termsUrl?: string
   type: 'FORM'
 }
 
