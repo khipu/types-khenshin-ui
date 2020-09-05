@@ -1,3 +1,10 @@
+import {OperationFailedReasons, QuestionTypes, UIMessageTypes} from "./index";
+
+type CustomTypes = {
+  OperationFailedReason: OperationFailedReason
+}
+
+
 type UiMessage =
     | FormMessage
     | UIResponseMessage
@@ -11,30 +18,9 @@ type UiMessage =
     | PaymentIdMessage
     | UpdatePaymentMessage
 
-type UIMessageType =
-  | 'FORM'
-  | 'USER_RESPONSE'
-  | 'OPERATION_INFO'
-  | 'OPERATION_SUCCESS'
-  | 'OPERATION_WARNING'
-  | 'OPERATION_FAILURE'
-  | 'PROGRESS_START'
-  | 'PROGRESS_STOP'
-  | 'HANDSHAKE'
-  | 'PAYMENT_ID'
-  | 'UPDATE_PAYMENT'
-
-type QuestionType = 'password' | 'number' | 'email' | 'rut' | 'input' | 'list' | 'coordinates'
-
-type OperationFailedReason =
-    | 'TASK_DUMPED'
-    | 'TASK_EXECUTION_ERROR'
-    | 'TASK_NOTIFICATION_ERROR'
-    | 'NO_BACKEND_AVAILABLE'
-    | 'TASK_FINISHED'
-    | 'INVALID_OPERATION_ID'
-    | 'TASK_DOWNLOAD_ERROR'
-    | 'FORM_TIMEOUT'
+type UIMessageType = typeof UIMessageTypes[number]
+type QuestionType = typeof QuestionTypes[number]
+type OperationFailedReason = typeof OperationFailedReasons[number]
 
 interface TypedMessage {
   type: UIMessageType
