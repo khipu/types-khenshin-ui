@@ -13,6 +13,7 @@
   "main": "",
   "typeScriptVersion": "3.9.5",
   "types": "index.d.ts",
+  "files": ["index.d.ts"],
   "author": {
     "name": "Julio Araya",
     "email": "julio.araya@khipu.com",
