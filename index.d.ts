@@ -1,32 +1,22 @@
 /**
  * Initial communication
  */
-type ClientConnectionType = 'KHIPU_HANDSHAKE' | 'CLIENT_HANDSHAKE' | 'HANDSHAKE'
+type ClientConnectionType = 'KHIPU_HANDSHAKE' | 'CLIENT_HANDSHAKE'
 type UIMessageType = ClientConnectionType | PaymentIdType | PaymentIsRunningType | PaymentFinishedType
 interface TypedMessage { type: UIMessageType }
 interface KhipuHandshake extends TypedMessage { type: 'KHIPU_HANDSHAKE' }
 interface ClientHandshake extends TypedMessage{ type: 'CLIENT_HANDSHAKE', publicKey: string, clientUUID: string }
-interface HandshakeMessage extends TypedMessage {/* @deprecated, use KhipuHandshake / ClientHandshake instead */ type: 'HANDSHAKE', key?: string }
-type InitialCommunicationMessageType = KhipuHandshake | ClientHandshake | HandshakeMessage
+type InitialCommunicationMessageType = KhipuHandshake | ClientHandshake
 
 /**
  * Payment initialization
  */
-type DeprecatedPaymentIdType = 'PAYMENT_ID' | 'UPDATE_PAYMENT'
-type PaymentIdType = | 'PAYMENT_ID_QUESTION' | 'PAYMENT_ID_RESPONSE' | 'UPDATE_PAYMENT_QUESTION' | 'UPDATE_PAYMENT_RESPONSE' | DeprecatedPaymentIdType
+type PaymentIdType = | 'PAYMENT_ID_QUESTION' | 'PAYMENT_ID_RESPONSE'
 interface PaymentIdQuestionMessage extends TypedMessage { type: 'PAYMENT_ID_QUESTION' }
 interface PaymentIdResponseMessage extends TypedMessage { type: 'PAYMENT_ID_RESPONSE', paymentId: string }
-interface PaymentIdMessage extends TypedMessage{/* @deprecated, use PaymentIdQuestionMessage / PaymentIdResponseMessage instead. */ type: 'PAYMENT_ID', paymentId?: string }
-interface UpdatePaymentQuestionMessage extends TypedMessage { type: 'UPDATE_PAYMENT_QUESTION', email?: string, bankId?: string, banks: Choice[] }
-interface UpdatePaymentResponseMessage extends TypedMessage { type: 'UPDATE_PAYMENT_RESPONSE', email: string, bankId: string }
-interface UpdatePaymentMessage extends TypedMessage { /* @deprecated, use UpdatePaymentQuestionMessage / UpdatePaymentResponseMessage instead */ type: 'UPDATE_PAYMENT', email?: string, bankId?: string, banks?: Choice[] }
 type PaymentInitializationMessagesType =
     | PaymentIdQuestionMessage
     | PaymentIdResponseMessage
-    | PaymentIdMessage
-    | UpdatePaymentQuestionMessage
-    | UpdatePaymentResponseMessage
-    | UpdatePaymentMessage
 
 /**
  * Payment process
