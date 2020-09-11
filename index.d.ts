@@ -1,12 +1,8 @@
 /**
  * Initial communication
  */
-type ClientConnectionType = 'KHIPU_HANDSHAKE' | 'CLIENT_HANDSHAKE'
-type UIMessageType = ClientConnectionType | PaymentIdType | PaymentIsRunningType | PaymentFinishedType
+type UIMessageType = PaymentIdType | PaymentIsRunningType | PaymentFinishedType
 interface TypedMessage { type: UIMessageType }
-interface KhipuHandshake extends TypedMessage { type: 'KHIPU_HANDSHAKE' }
-interface ClientHandshake extends TypedMessage{ type: 'CLIENT_HANDSHAKE', publicKey: string, clientUUID: string }
-type InitialCommunicationMessageType = KhipuHandshake | ClientHandshake
 
 /**
  * Payment initialization
@@ -36,7 +32,7 @@ type PaymentProcessMessageType = | FormMessage
 
 
 
-type UiMessage = InitialCommunicationMessageType | PaymentInitializationMessagesType | PaymentProcessMessageType
+type UiMessage = PaymentInitializationMessagesType | PaymentProcessMessageType
 
 type QuestionType = 'password' | 'number' | 'email' | 'rut' | 'input' | 'list' | 'coordinates'
 

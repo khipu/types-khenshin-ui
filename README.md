@@ -1,9 +1,6 @@
 #Initial Communication
 
  * The clients gets connected to khipu using some of our websockets options.
- * khipu sends to the client a KHIPU_HANDSHAKE message in plain text.
- * The client should respond with a CLIENT_HANDSHAKE that includes the client's public key for encryption in less than 10 seconds.
- * If the CLIENT_HANDSHAKE message arrives in less than 10 seconds to khipu, The client get accepted as a valid client.
 
 # Encrypted Communication
 
