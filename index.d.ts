@@ -29,7 +29,9 @@ type PaymentProcessMessageType = | FormMessage
     | FailureMessage
     | ProgressStartMessage
     | ProgressStopMessage
-
+    | BillInfoMessage
+    | BankUpdatedMessage
+    | BankAccountNumberUpdatedMessage
 
 
 type UiMessage = PaymentInitializationMessagesType | PaymentProcessMessageType
@@ -57,8 +59,11 @@ interface Question {
   choices?: Choice[] | Array<any> | any
 }
 
+type TitleIconType = 'secure' | 'transfer-data' | 'user-shield'
+
 interface FormMessage extends BaseMessage, TypedMessage {
   id: string
+  titleIcon?: TitleIconType
   info?: string
   pageTitle?: string
   continueLabel?: string
@@ -127,4 +132,19 @@ interface ProgressStopMessage extends ProgressMessage, TypedMessage  {
 
 interface ProgressMessage {
   title?: string
+}
+
+interface BillInfoMessage extends  TypedMessage {
+  merchantLogo: string
+  amount: string
+  subject?: string
+  imageUrl?: string
+}
+
+interface BankUpdatedMessage extends TypedMessage {
+  bankName: string
+}
+
+interface BankAccountNumberUpdatedMessage extends TypedMessage {
+  accountNumber: string
 }
