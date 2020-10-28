@@ -17,7 +17,15 @@ type PaymentInitializationMessagesType =
 /**
  * Payment process
  */
-type PaymentIsRunningType = 'OPERATION_INFO' | 'PROGRESS_START' | 'PROGRESS_STOP' | 'FORM' | 'USER_RESPONSE'
+type PaymentIsRunningType =
+    | 'OPERATION_INFO'
+    | 'PROGRESS_START'
+    | 'PROGRESS_STOP'
+    | 'FORM'
+    | 'USER_RESPONSE'
+    | 'BILL_INFO'
+    | 'BANK_UPDATED'
+    | 'BANK_ACCOUNT_NUMBER_UPDATED'
 type PaymentFinishedType = 'OPERATION_SUCCESS' | 'OPERATION_WARNING' | 'OPERATION_FAILURE'
 interface BaseMessage { title: string }
 
