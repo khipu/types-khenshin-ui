@@ -142,7 +142,8 @@ interface ProgressMessage {
   title?: string
 }
 
-interface BillInfoMessage extends  TypedMessage {
+interface BillInfoMessage extends TypedMessage {
+  type: 'BILL_INFO'
   merchantLogo: string
   amount: string
   subject?: string
@@ -150,9 +151,11 @@ interface BillInfoMessage extends  TypedMessage {
 }
 
 interface BankUpdatedMessage extends TypedMessage {
+  type: 'BANK_UPDATED'
   bankName: string
 }
 
 interface BankAccountNumberUpdatedMessage extends TypedMessage {
+  type: 'BANK_ACCOUNT_NUMBER_UPDATED'
   accountNumber: string
 }
