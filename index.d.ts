@@ -144,6 +144,7 @@ interface ProgressMessage {
 
 interface BillInfoMessage extends TypedMessage {
   type: 'BILL_INFO'
+  merchantName: string
   merchantLogoUrl: string
   amount: string
   subject?: string
