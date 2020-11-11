@@ -67,7 +67,7 @@ interface Question {
   choices?: Choice[] | Array<any> | any
 }
 
-type TitleIconType = 'secure' | 'transfer-data' | 'user-shield'
+type TitleIconType = 'secure' | 'user-shield'
 
 interface FormMessage extends BaseMessage, TypedMessage {
   id: string
