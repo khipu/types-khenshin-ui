@@ -149,6 +149,8 @@ interface BillInfoMessage extends TypedMessage {
   amount: string
   subject?: string
   imageUrl?: string
+  cancelUrl: string
+  returnUrl: string
 }
 
 interface BankUpdatedMessage extends TypedMessage {
