@@ -151,6 +151,8 @@ interface BillInfoMessage extends TypedMessage {
   imageUrl?: string
   cancelUrl: string
   returnUrl: string
+  changePaymentMethodUrl: string
+  fallbackUrl: string
 }
 
 interface BankUpdatedMessage extends TypedMessage {
