@@ -80,6 +80,7 @@ interface FormMessage extends BaseMessage, TypedMessage {
   errorMessage?: string
   questions: Question[]
   termsUrl?: string
+  timeout: number
   type: 'FORM'
 }
 
