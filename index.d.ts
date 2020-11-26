@@ -108,7 +108,7 @@ type ReasonExecutionFailed = 'TASK_EXECUTION_ERROR' | 'TASK_DOWNLOAD_ERROR' | 'I
 
 type ReasonFinishedType = 'NO_BACKEND_AVAILABLE' | 'TASK_FINISHED' | 'TASK_DUMPED'
 
-type ReasonInteractionType = 'FORM_TIMEOUT'
+type ReasonInteractionType = 'FORM_TIMEOUT' | 'USER_CANCELED'
 
 type ReasonNotificationType = 'TASK_NOTIFICATION_ERROR'
 
