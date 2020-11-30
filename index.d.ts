@@ -86,6 +86,7 @@ interface FormMessage extends BaseMessage, TypedMessage {
 
 interface UIAnswer {
   id: string
+  type: string
   value: string
   multiple: boolean
 }
