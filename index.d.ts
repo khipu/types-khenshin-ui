@@ -26,6 +26,8 @@ type PaymentIsRunningType =
     | 'BILL_INFO'
     | 'BANK_UPDATED'
     | 'BANK_ACCOUNT_NUMBER_UPDATED'
+    | 'PERSONAL_IDENTIFIER_UPDATED'
+
 type PaymentFinishedType = 'OPERATION_SUCCESS' | 'OPERATION_WARNING' | 'OPERATION_FAILURE'
 interface BaseMessage { title: string }
 
@@ -40,6 +42,7 @@ type PaymentProcessMessageType = | FormMessage
     | BillInfoMessage
     | BankUpdatedMessage
     | BankAccountNumberUpdatedMessage
+    | PersonalIdentifierUpdatedMessage
 
 
 type UiMessage = PaymentInitializationMessagesType | PaymentProcessMessageType
@@ -165,4 +168,9 @@ interface BankUpdatedMessage extends TypedMessage {
 interface BankAccountNumberUpdatedMessage extends TypedMessage {
   type: 'BANK_ACCOUNT_NUMBER_UPDATED'
   accountNumber: string
+}
+
+interface PersonalIdentifierUpdatedMessage extends TypedMessage {
+  type: 'PERSONAL_IDENTIFIER_UPDATED',
+  value: string
 }
