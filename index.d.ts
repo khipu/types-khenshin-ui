@@ -55,7 +55,7 @@ interface Choice {
 }
 
 interface Question {
-  type: QuestionType
+  fieldType: QuestionType
   name: string
   message: string
   mask?: string
@@ -89,7 +89,7 @@ interface FormMessage extends BaseMessage, TypedMessage {
 
 interface UIAnswer {
   id: string
-  type: QuestionType
+  fieldType: QuestionType
   value: string
   multiple: boolean
 }
