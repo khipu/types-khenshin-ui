@@ -154,14 +154,14 @@ interface BillInfoMessage extends TypedMessage {
   merchantName: string
   merchantLogoUrl: string
   amount: string
-  body: string
   subject?: string
+  body?: string
   imageUrl?: string
   cancelUrl: string
   returnUrl: string
   changePaymentMethodUrl: string
   fallbackUrl: string
-  attachmentUrls: string[]
+  attachmentUrls?: string[]
 }
 
 interface BankUpdatedMessage extends TypedMessage {
