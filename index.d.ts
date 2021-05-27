@@ -153,6 +153,7 @@ interface BillInfoMessage extends TypedMessage {
   type: 'BILL_INFO'
   merchantName: string
   merchantLogoUrl: string
+  paymentId?: string
   amount: string
   subject?: string
   body?: string

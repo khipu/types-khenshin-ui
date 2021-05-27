@@ -1,22 +1,21 @@
 #Initial Communication
 
- * The clients gets connected to khipu using some of our websockets options.
+ * The client gets connected to Khipu using our websockets.
 
 # Encrypted Communication
 
-From this point until the end of the connection, all the communication between khipu and the client will/must be encrypted and should be decrypted by de client.
+From the start to the end of the connection, all the communication between Khipu and the client will be encrypted and must be decrypted by de client.
 
-The encryption library used can be found at https://github.com/khipu/khenshin-js-securemessage.
+The encryption library used can be found at https://github.com/Khipu/khenshin-js-securemessage.
  
 # Payment initialization
 
- * khipu ask to the client for a payment to process using the PAYMENT_ID_QUESTION message.
- * The client should returns in less than 10 seconds the PAYMENT_ID_RESPONSE message.
- * If the PAYMENT_ID message arrives in less than 10 seconds to khipu, the connection will remain opened.
- * khipu verifies if the payment has a payer email & bank, if not, sends to the client an UPDATE_PAYMENT_QUESTION message.
- * The client should process the UPDATE_PAYMENT_QUESTION and send back in less than 90 seconds an UPDATE_PAYMENT_RESPONSE message to khipu.
- * If the UPDATE_PAYMENT_RESPONSE message arrives in less than 90 seconds to khipu, the connection will remain opened.
- * khipu verifies the UPDATE_PAYMENT_RESPONSE message and start a new payment process with the selected bank.
+ * Khipu asks the client for a payment descriptor to process using the PAYMENT_ID_QUESTION message.
+ * The client must return the PAYMENT_ID_RESPONSE message in maximum of 10 seconds, otherwise the socket will be closed.
+ * Khipu verifies if the payment has a payer email and bank, if it doesn't, it sends an UPDATE_PAYMENT_QUESTION message to the client.
+ * The client should process the UPDATE_PAYMENT_QUESTION and send back an UPDATE_PAYMENT_RESPONSE message to Khipu in a maximum of 90 seconds.
+ * If the UPDATE_PAYMENT_RESPONSE message arrives in less than 90 seconds to Khipu, the connection will remain opened.
+ * Khipu verifies the UPDATE_PAYMENT_RESPONSE message and start a new payment process with the selected bank.
 
 # Payment Process
 
@@ -25,9 +24,9 @@ Once a payment start the server will send several messages to the client, includ
  - OPERATION_INFO: The server is doing something
  - PROGRESS_START: The server is waiting for something to happen
  - PROGRESS_STOP: It happened!
- - FORM: The client needs to fill a form (with a timeout of 90 seconds
+ - FORM: The client needs to fill a form (with a timeout of 90 seconds)
  - USER_RESPONSE: The client send the responses to the server
- - OPERATION_SUCCESS: The payment is beign conciliated.
- - OPERATION_WARNING: The payment is beign conciliated, but the khipu is not sure if the payment was successfully procesed by the bank.
+ - OPERATION_SUCCESS: The payment is being conciliated.
+ - OPERATION_WARNING: The payment is being conciliated, but the Khipu is not sure if the payment was successfully processed by the bank.
  - OPERATION_FAILURE: The payment didn't end quite well.
 
