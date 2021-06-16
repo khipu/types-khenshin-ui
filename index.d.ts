@@ -2,14 +2,27 @@
  * Initial communication
  */
 type UIMessageType = PaymentIdType | PaymentIsRunningType | PaymentFinishedType | UIExperimentsCofigurationUpdated
-interface TypedMessage { type: UIMessageType }
+
+interface TypedMessage {
+    type: UIMessageType
+}
 
 /**
  * Payment initialization
  */
 type PaymentIdType = | 'PAYMENT_ID_QUESTION' | 'PAYMENT_ID_RESPONSE'
-interface PaymentIdQuestionMessage extends TypedMessage { type: 'PAYMENT_ID_QUESTION' }
-interface PaymentIdResponseMessage extends TypedMessage { type: 'PAYMENT_ID_RESPONSE', paymentId: string }
+
+interface PaymentIdQuestionMessage extends TypedMessage {
+    type: 'PAYMENT_ID_QUESTION'
+}
+
+interface PaymentIdResponseMessage extends TypedMessage {
+    type: 'PAYMENT_ID_RESPONSE',
+    paymentId: string,
+    sessionCookieName: string | undefined,
+    sessionCookieValue: string | undefined
+}
+
 type PaymentInitializationMessagesType =
     | PaymentIdQuestionMessage
     | PaymentIdResponseMessage
@@ -30,7 +43,10 @@ type PaymentIsRunningType =
 
 type PaymentFinishedType = 'OPERATION_SUCCESS' | 'OPERATION_WARNING' | 'OPERATION_FAILURE'
 type UIExperimentsCofigurationUpdated = 'UI_EXPERIMENTS_CONFIGURATION_UPDATED'
-interface BaseMessage { title: string }
+
+interface BaseMessage {
+    title: string
+}
 
 type PaymentProcessMessageType = | FormMessage
     | UIResponseMessage
@@ -52,62 +68,62 @@ type UiMessage = PaymentInitializationMessagesType | PaymentProcessMessageType
 type QuestionType = 'password' | 'number' | 'email' | 'rut' | 'input' | 'list' | 'coordinates'
 
 interface Choice {
-  value: string
-  name: string
+    value: string
+    name: string
 }
 
 interface Question {
-  fieldType: QuestionType
-  name: string
-  message: string
-  mask?: string
-  hint?: string
-  minLength?: number
-  maxLength?: number
-  minValue?: any
-  maxValue?: any
-  default?: any
-  format?: string
-  prefix?: string
-  choices?: Choice[] | Array<any> | any
+    fieldType: QuestionType
+    name: string
+    message: string
+    mask?: string
+    hint?: string
+    minLength?: number
+    maxLength?: number
+    minValue?: any
+    maxValue?: any
+    default?: any
+    format?: string
+    prefix?: string
+    choices?: Choice[] | Array<any> | any
 }
 
 type TitleIconType = 'secure' | 'user-shield'
 
 interface FormMessage extends BaseMessage, TypedMessage {
-  id: string
-  titleIcon?: TitleIconType
-  info?: string
-  pageTitle?: string
-  continueLabel?: string
-  currentStep?: number
-  totalSteps?: number
-  errorMessage?: string
-  questions: Question[]
-  termsUrl?: string
-  timeout: number
-  type: 'FORM'
+    id: string
+    titleIcon?: TitleIconType
+    info?: string
+    pageTitle?: string
+    continueLabel?: string
+    currentStep?: number
+    totalSteps?: number
+    errorMessage?: string
+    questions: Question[]
+    termsUrl?: string
+    timeout: number
+    type: 'FORM'
 }
 
 interface UIAnswer {
-  id: string
-  fieldType: QuestionType
-  value: string
-  multiple: boolean
+    id: string
+    fieldType: QuestionType
+    value: string
+    multiple: boolean
 }
 
 interface UIResponseMessage extends TypedMessage {
-  type: 'USER_RESPONSE'
-  id: string
-  answers: UIAnswer[]
+    type: 'USER_RESPONSE'
+    id: string
+    answers: UIAnswer[]
 }
 
 interface InfoMessage extends BaseMessage, TypedMessage {
-  type: 'OPERATION_INFO'
+    type: 'OPERATION_INFO'
 }
 
 interface SuccessMessage extends ExitMessage, TypedMessage {
-  type: 'OPERATION_SUCCESS'
+    type: 'OPERATION_SUCCESS'
 }
 
 type ReasonExecutionFailed = 'TASK_EXECUTION_ERROR' | 'TASK_DOWNLOAD_ERROR' | 'INVALID_OPERATION_ID'
@@ -121,66 +137,66 @@ type ReasonNotificationType = 'TASK_NOTIFICATION_ERROR'
 type OperationFailedReason = ReasonExecutionFailed | ReasonFinishedType | ReasonInteractionType | ReasonNotificationType
 
 interface WarningMessage extends ExitMessage, TypedMessage {
-  failureReason?: OperationFailedReason
-  type: 'OPERATION_WARNING'
+    failureReason?: OperationFailedReason
+    type: 'OPERATION_WARNING'
 }
 
 interface FailureMessage extends ExitMessage, TypedMessage {
-  failureReason: OperationFailedReason
-  type: 'OPERATION_FAILURE'
+    failureReason: OperationFailedReason
+    type: 'OPERATION_FAILURE'
 }
 
 interface ExitMessage extends BaseMessage {
-  body?: string
-  operationId: string
-  resultMessage?: string
-  exitUrl?: string
+    body?: string
+    operationId: string
+    resultMessage?: string
+    exitUrl?: string
 }
 
 interface ProgressStartMessage extends ProgressMessage, TypedMessage {
-  type: 'PROGRESS_START'
+    type: 'PROGRESS_START'
 }
 
-interface ProgressStopMessage extends ProgressMessage, TypedMessage  {
-  type: 'PROGRESS_STOP'
+interface ProgressStopMessage extends ProgressMessage, TypedMessage {
+    type: 'PROGRESS_STOP'
 }
 
 interface ProgressMessage {
-  title?: string
+    title?: string
 }
 
 interface BillInfoMessage extends TypedMessage {
-  type: 'BILL_INFO'
-  merchantName: string
-  merchantLogoUrl: string
-  paymentId: string
-  amount: string
-  subject?: string
-  body?: string
-  imageUrl?: string
-  cancelUrl: string
-  returnUrl: string
-  changePaymentMethodUrl: string
-  fallbackUrl: string
-  attachmentUrls?: string[]
+    type: 'BILL_INFO'
+    merchantName: string
+    merchantLogoUrl: string
+    paymentId: string
+    amount: string
+    subject?: string
+    body?: string
+    imageUrl?: string
+    cancelUrl: string
+    returnUrl: string
+    changePaymentMethodUrl: string
+    fallbackUrl: string
+    attachmentUrls?: string[]
 }
 
 interface BankUpdatedMessage extends TypedMessage {
-  type: 'BANK_UPDATED'
-  bankName: string
+    type: 'BANK_UPDATED'
+    bankName: string
 }
 
 interface BankAccountNumberUpdatedMessage extends TypedMessage {
-  type: 'BANK_ACCOUNT_NUMBER_UPDATED'
-  accountNumber: string
+    type: 'BANK_ACCOUNT_NUMBER_UPDATED'
+    accountNumber: string
 }
 
 interface PersonalIdentifierUpdatedMessage extends TypedMessage {
-  type: 'PERSONAL_IDENTIFIER_UPDATED',
-  value: string
+    type: 'PERSONAL_IDENTIFIER_UPDATED',
+    value: string
 }
 
 interface UIExperimentsCofigurationUpdatedMessage extends TypedMessage {
-  type: 'UI_EXPERIMENTS_CONFIGURATION_UPDATED',
-  value: string
+    type: 'UI_EXPERIMENTS_CONFIGURATION_UPDATED',
+    value: string
 }
