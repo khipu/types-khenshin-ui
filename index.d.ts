@@ -1,7 +1,7 @@
 /**
  * Initial communication
  */
-type UIMessageType = PaymentIdType | PaymentIsRunningType | PaymentFinishedType | UIExperimentsCofigurationUpdated
+type UIMessageType = PaymentIdType | PaymentIsRunningType | PaymentFinishedType | UIExperimentsCofigurationUpdated | BankWithoutAutomatonType
 
 interface TypedMessage {
     type: UIMessageType
@@ -43,6 +43,7 @@ type PaymentIsRunningType =
 
 type PaymentFinishedType = 'OPERATION_SUCCESS' | 'OPERATION_WARNING' | 'OPERATION_FAILURE'
 type UIExperimentsCofigurationUpdated = 'UI_EXPERIMENTS_CONFIGURATION_UPDATED'
+type BankWithoutAutomatonType = 'BANK_WITHOUT_AUTOMATON'
 
 interface BaseMessage {
     title: string
@@ -61,6 +62,7 @@ type PaymentProcessMessageType = | FormMessage
     | BankAccountNumberUpdatedMessage
     | PersonalIdentifierUpdatedMessage
     | UIExperimentsCofigurationUpdatedMessage
+    | BankWithoutAutomaton
 
 
 type UiMessage = PaymentInitializationMessagesType | PaymentProcessMessageType
@@ -199,4 +201,9 @@ interface PersonalIdentifierUpdatedMessage extends TypedMessage {
 interface UIExperimentsCofigurationUpdatedMessage extends TypedMessage {
     type: 'UI_EXPERIMENTS_CONFIGURATION_UPDATED',
     value: string
+}
+
+interface BankWithoutAutomaton extends TypedMessage {
+    type: 'BANK_WITHOUT_AUTOMATON',
+    bankName: string
 }
