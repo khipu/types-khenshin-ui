@@ -62,7 +62,7 @@ type PaymentProcessMessageType = | FormMessage
     | BankAccountNumberUpdatedMessage
     | PersonalIdentifierUpdatedMessage
     | UIExperimentsCofigurationUpdatedMessage
-    | BankWithoutAutomaton
+    | BankWithoutAutomatonMessage
 
 
 type UiMessage = PaymentInitializationMessagesType | PaymentProcessMessageType
@@ -203,7 +203,7 @@ interface UIExperimentsCofigurationUpdatedMessage extends TypedMessage {
     value: string
 }
 
-interface BankWithoutAutomaton extends TypedMessage {
+interface BankWithoutAutomatonMessage extends TypedMessage {
     type: 'BANK_WITHOUT_AUTOMATON',
     bankName: string
 }
