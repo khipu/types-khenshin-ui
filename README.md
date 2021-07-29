@@ -29,4 +29,5 @@ Once a payment start the server will send several messages to the client, includ
  - OPERATION_SUCCESS: The payment is being conciliated.
  - OPERATION_WARNING: The payment is being conciliated, but the Khipu is not sure if the payment was successfully processed by the bank.
  - OPERATION_FAILURE: The payment didn't end quite well.
+ - BANK_WITHOUT_AUTOMATON: The selected bank doesn't have a valid automaton
 
