@@ -205,5 +205,5 @@ interface UIExperimentsCofigurationUpdatedMessage extends TypedMessage {
 
 interface BankWithoutAutomatonMessage extends TypedMessage {
     type: 'BANK_WITHOUT_AUTOMATON',
-    bankName: string
+    disabledAutomatonMessage: string
 }
