@@ -20,7 +20,8 @@ interface PaymentIdResponseMessage extends TypedMessage {
     type: 'PAYMENT_ID_RESPONSE',
     paymentId: string,
     sessionCookieName: string | undefined,
-    sessionCookieValue: string | undefined
+    sessionCookieValue: string | undefined,
+    stfp: any | undefined,
 }
 
 type PaymentInitializationMessagesType =

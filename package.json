@@ -1,7 +1,7 @@
 {
   "name": "@types/khenshin-ui",
   "description": "TypeScript definitions for client-server messaging protocol",
-  "version": "1.3.3",
+  "version": "1.3.6",
   "homepage": "https://github.com/khipu/types-khenshin-ui",
   "license": "UNLICENSED",
   "private": true,
