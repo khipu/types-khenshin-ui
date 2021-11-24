@@ -129,7 +129,7 @@ interface SuccessMessage extends ExitMessage, TypedMessage {
     type: 'OPERATION_SUCCESS'
 }
 
-type ReasonExecutionFailed = 'TASK_EXECUTION_ERROR' | 'TASK_DOWNLOAD_ERROR' | 'INVALID_OPERATION_ID'
+type ReasonExecutionFailed = 'TASK_EXECUTION_ERROR' | 'TASK_DOWNLOAD_ERROR' | 'INVALID_OPERATION_ID' | 'SERVER_DISCONNECTED'
 
 type ReasonFinishedType = 'NO_BACKEND_AVAILABLE' | 'TASK_FINISHED' | 'TASK_DUMPED'
 
