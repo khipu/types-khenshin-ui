@@ -1,7 +1,7 @@
 /**
  * Initial communication
  */
-type UIMessageType = PaymentIdType | PaymentIsRunningType | PaymentFinishedType | UIExperimentsCofigurationUpdated | BankWithoutAutomatonType
+type UIMessageType = PaymentIdType | PaymentIsRunningType | PaymentFinishedType | UIExperimentsConfigurationUpdated | BankWithoutAutomatonType | AcquirePageErrorType
 
 interface TypedMessage {
     type: UIMessageType
@@ -43,8 +43,9 @@ type PaymentIsRunningType =
     | 'PERSONAL_IDENTIFIER_UPDATED'
 
 type PaymentFinishedType = 'OPERATION_SUCCESS' | 'OPERATION_WARNING' | 'OPERATION_FAILURE'
-type UIExperimentsCofigurationUpdated = 'UI_EXPERIMENTS_CONFIGURATION_UPDATED'
+type UIExperimentsConfigurationUpdated = 'UI_EXPERIMENTS_CONFIGURATION_UPDATED'
 type BankWithoutAutomatonType = 'BANK_WITHOUT_AUTOMATON'
+type AcquirePageErrorType = 'ACQUIRE_PAGE_ERROR'
 
 interface BaseMessage {
     title: string
@@ -62,8 +63,9 @@ type PaymentProcessMessageType = | FormMessage
     | BankUpdatedMessage
     | BankAccountNumberUpdatedMessage
     | PersonalIdentifierUpdatedMessage
-    | UIExperimentsCofigurationUpdatedMessage
+    | UIExperimentsConfigurationUpdatedMessage
     | BankWithoutAutomatonMessage
+    | AcquirePageErrorMessage
 
 
 type UiMessage = PaymentInitializationMessagesType | PaymentProcessMessageType
@@ -199,7 +201,7 @@ interface PersonalIdentifierUpdatedMessage extends TypedMessage {
     value: string
 }
 
-interface UIExperimentsCofigurationUpdatedMessage extends TypedMessage {
+interface UIExperimentsConfigurationUpdatedMessage extends TypedMessage {
     type: 'UI_EXPERIMENTS_CONFIGURATION_UPDATED',
     value: string
 }
@@ -207,4 +209,14 @@ interface UIExperimentsCofigurationUpdatedMessage extends TypedMessage {
 interface BankWithoutAutomatonMessage extends TypedMessage {
     type: 'BANK_WITHOUT_AUTOMATON',
     disabledAutomatonMessage: string
+}
+
+interface AcquirePageErrorMessage extends TypedMessage {
+    type: 'ACQUIRE_PAGE_ERROR',
+    disabledAutomatonMessage: string
+}
+
+interface UIExperimentsConfigurationUpdatedMessage extends TypedMessage {
+    type: 'UI_EXPERIMENTS_CONFIGURATION_UPDATED',
+    value: string
 }
