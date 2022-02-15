@@ -63,6 +63,7 @@ type PaymentProcessMessageType = | FormMessage
     | BillInfoMessage
     | BankUpdatedMessage
     | BankAccountNumberUpdatedMessage
+    | AmountUpdated
     | PersonalIdentifierUpdatedMessage
     | UIExperimentsConfigurationUpdatedMessage
     | BankWithoutAutomatonMessage
@@ -195,6 +196,11 @@ interface BankUpdatedMessage extends TypedMessage {
 interface BankAccountNumberUpdatedMessage extends TypedMessage {
     type: 'BANK_ACCOUNT_NUMBER_UPDATED'
     accountNumber: string
+}
+
+interface AmountUpdated extends TypedMessage {
+    type: 'AMOUNT_UPDATED'
+    amount: string
 }
 
 interface PersonalIdentifierUpdatedMessage extends TypedMessage {
