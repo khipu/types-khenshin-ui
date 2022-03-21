@@ -41,6 +41,7 @@ type PaymentIsRunningType =
     | 'BANK_UPDATED'
     | 'BANK_ACCOUNT_NUMBER_UPDATED'
     | 'AMOUNT_UPDATED'
+    | 'BRAND_COLOR_UPDATED'
     | 'PERSONAL_IDENTIFIER_UPDATED'
 
 type PaymentFinishedType = 'OPERATION_SUCCESS' | 'OPERATION_WARNING' | 'OPERATION_FAILURE'
@@ -63,7 +64,8 @@ type PaymentProcessMessageType = | FormMessage
     | BillInfoMessage
     | BankUpdatedMessage
     | BankAccountNumberUpdatedMessage
-    | AmountUpdated
+    | AmountUpdatedMessage
+    | BrandColorUpdatedMessage
     | PersonalIdentifierUpdatedMessage
     | UIExperimentsConfigurationUpdatedMessage
     | BankWithoutAutomatonMessage
@@ -198,9 +200,14 @@ interface BankAccountNumberUpdatedMessage extends TypedMessage {
     accountNumber: string
 }
 
-interface AmountUpdated extends TypedMessage {
+interface AmountUpdatedMessage extends TypedMessage {
     type: 'AMOUNT_UPDATED'
     amount: string
+}
+
+interface BrandColorUpdatedMessage extends TypedMessage {
+    type: 'BRAND_COLOR_UPDATED'
+    brandColor: string
 }
 
 interface PersonalIdentifierUpdatedMessage extends TypedMessage {
