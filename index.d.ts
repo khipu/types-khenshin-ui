@@ -32,17 +32,18 @@ type PaymentInitializationMessagesType =
  * Payment process
  */
 type PaymentIsRunningType =
+    | 'AMOUNT_UPDATED'
+    | 'BANK_ACCOUNT_NUMBER_UPDATED'
+    | 'BANK_UPDATED'
+    | 'BILL_INFO'
+    | 'BRAND_COLOR_UPDATED'
+    | 'FORM'
+    | 'KHIPU_LOGO_URL_UPDATED'
     | 'OPERATION_INFO'
+    | 'PERSONAL_IDENTIFIER_UPDATED'
     | 'PROGRESS_START'
     | 'PROGRESS_STOP'
-    | 'FORM'
     | 'USER_RESPONSE'
-    | 'BILL_INFO'
-    | 'BANK_UPDATED'
-    | 'BANK_ACCOUNT_NUMBER_UPDATED'
-    | 'AMOUNT_UPDATED'
-    | 'BRAND_COLOR_UPDATED'
-    | 'PERSONAL_IDENTIFIER_UPDATED'
 
 type PaymentFinishedType = 'OPERATION_SUCCESS' | 'OPERATION_WARNING' | 'OPERATION_FAILURE'
 type UIExperimentsConfigurationUpdated = 'UI_EXPERIMENTS_CONFIGURATION_UPDATED'
@@ -53,23 +54,24 @@ interface BaseMessage {
     title: string
 }
 
-type PaymentProcessMessageType = | FormMessage
-    | UIResponseMessage
-    | InfoMessage
-    | SuccessMessage
-    | WarningMessage
+type PaymentProcessMessageType = | AcquirePageErrorMessage
+    | AmountUpdatedMessage
+    | BankAccountNumberUpdatedMessage
+    | BankUpdatedMessage
+    | BankWithoutAutomatonMessage
+    | BillInfoMessage
+    | BrandColorUpdatedMessage
     | FailureMessage
+    | FormMessage
+    | InfoMessage
+    | KhipuLogoUrlUpdatedMessage
+    | PersonalIdentifierUpdatedMessage
     | ProgressStartMessage
     | ProgressStopMessage
-    | BillInfoMessage
-    | BankUpdatedMessage
-    | BankAccountNumberUpdatedMessage
-    | AmountUpdatedMessage
-    | BrandColorUpdatedMessage
-    | PersonalIdentifierUpdatedMessage
+    | SuccessMessage
     | UIExperimentsConfigurationUpdatedMessage
-    | BankWithoutAutomatonMessage
-    | AcquirePageErrorMessage
+    | UIResponseMessage
+    | WarningMessage
 
 
 type UiMessage = PaymentInitializationMessagesType | PaymentProcessMessageType
@@ -203,6 +205,11 @@ interface BankAccountNumberUpdatedMessage extends TypedMessage {
 interface AmountUpdatedMessage extends TypedMessage {
     type: 'AMOUNT_UPDATED'
     amount: string
+}
+
+interface KhipuLogoUrlUpdatedMessage extends TypedMessage {
+    type: 'KHIPU_LOGO_URL_UPDATED'
+    url: string
 }
 
 interface BrandColorUpdatedMessage extends TypedMessage {
