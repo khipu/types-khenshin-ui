@@ -1,7 +1,13 @@
 /**
  * Initial communication
  */
-type UIMessageType = PaymentIdType | PaymentIsRunningType | PaymentFinishedType | UIExperimentsConfigurationUpdated | BankWithoutAutomatonType | AcquirePageErrorType
+type UIMessageType =
+    | AcquirePageErrorType
+    | BankWithoutAutomatonType
+    | PaymentFinishedType
+    | PaymentIdType
+    | PaymentIsRunningType
+    | UIExperimentsConfigurationUpdated
 
 interface TypedMessage {
     type: UIMessageType
@@ -43,6 +49,7 @@ type PaymentIsRunningType =
     | 'PERSONAL_IDENTIFIER_UPDATED'
     | 'PROGRESS_START'
     | 'PROGRESS_STOP'
+    | 'TECHNOLOGY_INSIDE_IMAGE_URL_UPDATED'
     | 'USER_RESPONSE'
 
 type PaymentFinishedType = 'OPERATION_SUCCESS' | 'OPERATION_WARNING' | 'OPERATION_FAILURE'
@@ -54,7 +61,8 @@ interface BaseMessage {
     title: string
 }
 
-type PaymentProcessMessageType = | AcquirePageErrorMessage
+type PaymentProcessMessageType =
+    | AcquirePageErrorMessage
     | AmountUpdatedMessage
     | BankAccountNumberUpdatedMessage
     | BankUpdatedMessage
@@ -69,6 +77,7 @@ type PaymentProcessMessageType = | AcquirePageErrorMessage
     | ProgressStartMessage
     | ProgressStopMessage
     | SuccessMessage
+    | TechnologyInsideImageUrlUpdatedMessage
     | UIExperimentsConfigurationUpdatedMessage
     | UIResponseMessage
     | WarningMessage
@@ -195,6 +204,11 @@ interface BillInfoMessage extends TypedMessage {
 interface BankUpdatedMessage extends TypedMessage {
     type: 'BANK_UPDATED'
     bankName: string
+}
+
+interface TechnologyInsideImageUrlUpdatedMessage extends TypedMessage {
+    type: 'TECHNOLOGY_INSIDE_IMAGE_URL_UPDATED'
+    url: string
 }
 
 interface BankAccountNumberUpdatedMessage extends TypedMessage {
