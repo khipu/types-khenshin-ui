@@ -44,7 +44,6 @@ type PaymentIsRunningType =
     | 'BILL_INFO'
     | 'BRAND_COLOR_UPDATED'
     | 'FORM'
-    | 'KHIPU_LOGO_URL_UPDATED'
     | 'OPERATION_INFO'
     | 'PERSONAL_IDENTIFIER_UPDATED'
     | 'PROGRESS_START'
@@ -219,11 +218,6 @@ interface BankAccountNumberUpdatedMessage extends TypedMessage {
 interface AmountUpdatedMessage extends TypedMessage {
     type: 'AMOUNT_UPDATED'
     amount: string
-}
-
-interface KhipuLogoUrlUpdatedMessage extends TypedMessage {
-    type: 'KHIPU_LOGO_URL_UPDATED'
-    url: string
 }
 
 interface BrandColorUpdatedMessage extends TypedMessage {
