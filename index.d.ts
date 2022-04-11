@@ -71,7 +71,6 @@ type PaymentProcessMessageType =
     | FailureMessage
     | FormMessage
     | InfoMessage
-    | KhipuLogoUrlUpdatedMessage
     | PersonalIdentifierUpdatedMessage
     | ProgressStartMessage
     | ProgressStopMessage
