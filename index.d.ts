@@ -81,6 +81,8 @@ type PaymentProcessMessageType =
     | UIExperimentsConfigurationUpdatedMessage
     | UIResponseMessage
     | WarningMessage
+    | PreAutorizationCanceledMessage
+    | PreAutorizationStartedMessage
 
 
 type UiMessage = PaymentInitializationMessagesType | PaymentProcessMessageType
