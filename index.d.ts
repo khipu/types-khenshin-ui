@@ -50,6 +50,8 @@ type PaymentIsRunningType =
     | 'PROGRESS_STOP'
     | 'TECHNOLOGY_INSIDE_IMAGE_URL_UPDATED'
     | 'USER_RESPONSE'
+    | 'PRE_AUTHORIZATION_STARTED'
+    | 'PRE_AUTHORIZATION_CANCELED'
 
 type PaymentFinishedType = 'OPERATION_SUCCESS' | 'OPERATION_WARNING' | 'OPERATION_FAILURE'
 type UIExperimentsConfigurationUpdated = 'UI_EXPERIMENTS_CONFIGURATION_UPDATED'
@@ -227,6 +229,14 @@ interface BrandColorUpdatedMessage extends TypedMessage {
 interface PersonalIdentifierUpdatedMessage extends TypedMessage {
     type: 'PERSONAL_IDENTIFIER_UPDATED',
     value: string
+}
+
+interface PreAutorizationStartedMessage extends TypedMessage {
+    type: 'PRE_AUTHORIZATION_STARTED'
+}
+
+interface PreAutorizationCanceledMessage extends TypedMessage {
+    type: 'PRE_AUTHORIZATION_CANCELED'
 }
 
 interface UIExperimentsConfigurationUpdatedMessage extends TypedMessage {
