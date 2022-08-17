@@ -108,6 +108,7 @@ interface Question {
     format?: string
     prefix?: string
     choices?: Choice[] | Array<any> | any
+    tagsOrder?: string
 }
 
 type TitleIconType = 'secure' | 'user-shield'
