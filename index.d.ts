@@ -87,7 +87,7 @@ type PaymentProcessMessageType =
 
 type UiMessage = PaymentInitializationMessagesType | PaymentProcessMessageType
 
-type QuestionType = 'password' | 'number' | 'email' | 'rut' | 'input' | 'list' | 'coordinates'
+type QuestionType = 'password' | 'number' | 'email' | 'rut' | 'input' | 'list' | 'imageList' | 'coordinates'
 
 interface Choice {
     value: string
