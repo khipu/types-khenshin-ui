@@ -174,6 +174,7 @@ interface ExitMessage extends BaseMessage {
     operationId: string
     resultMessage?: string
     exitUrl?: string
+    summaryRowsLabels?: SummaryRowsLabels
 }
 
 interface ProgressStartMessage extends ProgressMessage, TypedMessage {
@@ -186,6 +187,16 @@ interface ProgressStopMessage extends ProgressMessage, TypedMessage {
 
 interface ProgressMessage {
     title?: string
+}
+
+interface SummaryRowsLabels {
+    operationCode: string,
+    error: string,
+    merchant: string,
+    bank: string,
+    personalIdentifier: string,
+    amount: string,
+    subject: string,
 }
 
 interface BillInfoMessage extends TypedMessage {
