@@ -19,7 +19,8 @@ interface TypedMessage {
 type PaymentIdType = | 'PAYMENT_ID_QUESTION' | 'PAYMENT_ID_RESPONSE'
 
 interface PaymentIdQuestionMessage extends TypedMessage {
-    type: 'PAYMENT_ID_QUESTION'
+    type: 'PAYMENT_ID_QUESTION',
+    uiMessages?: UiMessages
 }
 
 interface PaymentIdResponseMessage extends TypedMessage {
@@ -197,6 +198,15 @@ interface SummaryRowsLabels {
     personalIdentifier: string,
     amount: string,
     subject: string,
+}
+
+interface UiMessages {
+    progressMessage?: string,
+    operationSummary?: string,
+    cancelLinkText?: string,
+    changePaymentMethodLinkText?: string,
+    acceptConditionsLinkText?: string,
+    failureMessageHeaderText?: string,
 }
 
 interface BillInfoMessage extends TypedMessage {
