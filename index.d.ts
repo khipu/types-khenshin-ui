@@ -201,12 +201,7 @@ interface SummaryRowsLabels {
 }
 
 interface UiMessages {
-    progressMessage?: string,
-    operationSummary?: string,
-    cancelLinkText?: string,
-    changePaymentMethodLinkText?: string,
-    acceptConditionsLinkText?: string,
-    failureMessageHeaderText?: string,
+    [id: string] : string
 }
 
 interface BillInfoMessage extends TypedMessage {
