@@ -19,7 +19,7 @@ interface TypedMessage {
  */
 type PaymentIdType = | 'PAYMENT_ID_QUESTION' | 'PAYMENT_ID_RESPONSE'
 
-type PaymentCancelType = | 'CANCEL_PAYMENT' | 'CANCEL_RESTART_COMPLETE'
+type PaymentCancelType = | 'CANCEL_PAYMENT' | 'CANCEL_PAYMENT_COMPLETE'
 
 interface PaymentIdQuestionMessage extends TypedMessage {
     type: 'PAYMENT_ID_QUESTION',
@@ -32,7 +32,7 @@ interface PaymentCancelMessage extends TypedMessage {
 }
 
 interface PaymentCancelCompleteMessage extends TypedMessage {
-    type: 'CANCEL_RESTART_COMPLETE',
+    type: 'CANCEL_PAYMENT_COMPLETE',
     uiMessages?: UiMessages
 }
 
