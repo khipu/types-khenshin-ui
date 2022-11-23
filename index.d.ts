@@ -8,7 +8,7 @@ type UIMessageType =
     | PaymentIdType
     | PaymentIsRunningType
     | UIExperimentsConfigurationUpdated
-    | PaymentRestartType
+    | PaymentCancelType
 
 interface TypedMessage {
     type: UIMessageType
@@ -19,20 +19,20 @@ interface TypedMessage {
  */
 type PaymentIdType = | 'PAYMENT_ID_QUESTION' | 'PAYMENT_ID_RESPONSE'
 
-type PaymentRestartType = | 'RESTART_PAYMENT' | 'PAYMENT_RESTART_COMPLETE'
+type PaymentCancelType = | 'CANCEL_PAYMENT' | 'CANCEL_RESTART_COMPLETE'
 
 interface PaymentIdQuestionMessage extends TypedMessage {
     type: 'PAYMENT_ID_QUESTION',
     uiMessages?: UiMessages
 }
 
-interface PaymentRestartMessage extends TypedMessage {
-    type: 'RESTART_PAYMENT',
+interface PaymentCancelMessage extends TypedMessage {
+    type: 'CANCEL_PAYMENT',
     uiMessages?: UiMessages
 }
 
-interface PaymentRestartCompleteMessage extends TypedMessage {
-    type: 'PAYMENT_RESTART_COMPLETE',
+interface PaymentCancelCompleteMessage extends TypedMessage {
+    type: 'CANCEL_RESTART_COMPLETE',
     uiMessages?: UiMessages
 }
 
@@ -47,8 +47,8 @@ interface PaymentIdResponseMessage extends TypedMessage {
 type PaymentInitializationMessagesType =
     | PaymentIdQuestionMessage
     | PaymentIdResponseMessage
-    | PaymentRestartMessage
-    | PaymentRestartCompleteMessage
+    | PaymentCancelMessage
+    | PaymentCancelCompleteMessage
 
 /**
  * Payment process
