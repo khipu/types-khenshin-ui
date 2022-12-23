@@ -125,9 +125,7 @@ interface Question {
     prefix?: string
     choices?: Choice[] | Array<any> | any
     tagsOrder?: string
-    imageUrl?: string
-    referer?: string
-
+    imageData?: string
 }
 
 type TitleIconType = 'secure' | 'user-shield'
