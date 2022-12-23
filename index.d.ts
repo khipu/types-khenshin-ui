@@ -103,7 +103,7 @@ type PaymentProcessMessageType =
 
 type UiMessage = PaymentInitializationMessagesType | PaymentProcessMessageType
 
-type QuestionType = 'password' | 'number' | 'email' | 'rut' | 'input' | 'list' | 'imageList' | 'coordinates'
+type QuestionType = 'password' | 'number' | 'email' | 'rut' | 'input' | 'list' | 'imageList' | 'coordinates' | 'imageChallenge'
 
 interface Choice {
     value: string
@@ -125,6 +125,9 @@ interface Question {
     prefix?: string
     choices?: Choice[] | Array<any> | any
     tagsOrder?: string
+    imageUrl?: string
+    referer?: string
+
 }
 
 type TitleIconType = 'secure' | 'user-shield'
