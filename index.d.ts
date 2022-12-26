@@ -114,6 +114,7 @@ interface Question {
     fieldType: QuestionType
     name: string
     message: string
+    placeholder?: string
     mask?: string
     hint?: string
     minLength?: number
