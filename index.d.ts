@@ -9,6 +9,7 @@ type UIMessageType =
     | PaymentIsRunningType
     | UIExperimentsConfigurationUpdated
     | PaymentCancelType
+    | OpenAppType
 
 interface TypedMessage {
     type: UIMessageType
@@ -20,6 +21,8 @@ interface TypedMessage {
 type PaymentIdType = | 'PAYMENT_ID_QUESTION' | 'PAYMENT_ID_RESPONSE'
 
 type PaymentCancelType = | 'CANCEL_PAYMENT' | 'CANCEL_PAYMENT_COMPLETE'
+
+type OpenAppType = 'OPEN_APP'
 
 interface PaymentIdQuestionMessage extends TypedMessage {
     type: 'PAYMENT_ID_QUESTION',
@@ -99,6 +102,7 @@ type PaymentProcessMessageType =
     | WarningMessage
     | PreAutorizationCanceledMessage
     | PreAutorizationStartedMessage
+    | OpenAppMessage
 
 
 type UiMessage = PaymentInitializationMessagesType | PaymentProcessMessageType
@@ -269,6 +273,11 @@ interface PersonalIdentifierUpdatedMessage extends TypedMessage {
 
 interface PreAutorizationStartedMessage extends TypedMessage {
     type: 'PRE_AUTHORIZATION_STARTED'
+}
+
+interface OpenAppMessage extends TypedMessage {
+    type: 'OPEN_APP'
+    appDefinition: any
 }
 
 interface PreAutorizationCanceledMessage extends TypedMessage {
