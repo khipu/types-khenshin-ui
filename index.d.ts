@@ -131,6 +131,8 @@ interface Question {
     choices?: Choice[] | Array<any> | any
     tagsOrder?: string
     imageData?: string
+    secure?: boolean
+    number?: boolean
 }
 
 type TitleIconType = 'secure' | 'user-shield'
