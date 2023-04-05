@@ -149,6 +149,7 @@ interface FormMessage extends BaseMessage, TypedMessage {
     questions: Question[]
     termsUrl?: string
     timeout: number
+    rememberValues: boolean
     type: 'FORM'
 }
 
