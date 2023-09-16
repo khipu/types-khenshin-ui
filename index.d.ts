@@ -12,6 +12,7 @@ type UIMessageType =
     | OpenAppType
 
 interface TypedMessage {
+    id?: string
     type: UIMessageType
 }
 
